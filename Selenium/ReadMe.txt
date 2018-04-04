@@ -1,0 +1,1 @@
+﻿Get and put Selenium browser drivers from WEB and put them onto path, or in the same folder as the executable
