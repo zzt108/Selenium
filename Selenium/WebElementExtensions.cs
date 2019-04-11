@@ -24,7 +24,7 @@ namespace Selenium
 		public static ReadOnlyCollection<IWebElement> FindElements(this IWebElement element, By by, TimeSpan timeOut)
 		{
 			var driver = ((IWrapsDriver)element).WrappedDriver;
-			driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromMilliseconds(0);
+			driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(0));
 			try
 			{
 				if (!timeOut.Equals(TimeSpan.Zero))
@@ -37,7 +37,7 @@ namespace Selenium
 			}
 			finally
 			{
-				driver.Manage().Timeouts().ImplicitWait =TimeSpan.FromMilliseconds(0);
+				driver.Manage().Timeouts().ImplicitlyWait(TimeSpan.FromMilliseconds(0));
 			}
 		}
 	}

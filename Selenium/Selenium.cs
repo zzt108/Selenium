@@ -78,10 +78,9 @@ namespace Selenium
 				case BrowserTypeEnum.Opera:
 					Driver = new OperaDriver();
 					break;
-                //PhantomJS driver is obsolete
-				//case BrowserTypeEnum.PhantomJS:
-				//	Driver = new PhantomJSDriver();
-				//	break;
+				case BrowserTypeEnum.PhantomJS:
+					Driver = new PhantomJSDriver();
+					break;
 				case BrowserTypeEnum.RemoteWebDriver:
 					ICapabilities capabilities = DesiredCapabilities.PhantomJS();
 					Driver = new RemoteWebDriver(capabilities);
@@ -105,8 +104,7 @@ namespace Selenium
 
 		private void SetImplicitWait(TimeSpan implicitWait)
 		{
-			//Driver.Manage().Timeouts().ImplicitlyWait(implicitWait);
-			Driver.Manage().Timeouts().ImplicitWait = implicitWait;
+			Driver.Manage().Timeouts().ImplicitlyWait(implicitWait);
 		}
 
 		public virtual void Quit()

@@ -132,7 +132,7 @@ namespace NUnit.Tests
 		{
 			var webSiteRoot = "http://lbf.dev.appstract.dk";
 			var userName = "appstract";
-			//var password = "!QAZxsw2";
+			var password = "!QAZxsw2";
 			_backOffice = new BackOffice(webSiteRoot, _browserType);
 			_backOffice.Login(userName, Password);
 			var content = _backOffice.Sections.Section(Sections.SectionEnum.Content);
