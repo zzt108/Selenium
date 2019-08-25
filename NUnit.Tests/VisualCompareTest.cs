@@ -19,10 +19,11 @@ namespace NUnit.Tests
 	[TestFixture(Selenium.Selenium.BrowserTypeEnum.Edge)]
 	[TestFixture(Selenium.Selenium.BrowserTypeEnum.InternetExplorer)]
 	[TestFixture(Selenium.Selenium.BrowserTypeEnum.Chrome)]
-#endif
-
+#else
 	[TestFixture(Selenium.Selenium.BrowserTypeEnum.Firefox)]
 	[TestFixture(Selenium.Selenium.BrowserTypeEnum.Chrome)]
+#endif
+
 	public class VisualCompareTest
 	{
 		#region Privates
