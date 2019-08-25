@@ -49,7 +49,10 @@ namespace Selenium
 
 		public enum BrowserTypeEnum
 		{
-			Firefox, Chrome, InternetExplorer, Edge, Opera, PhantomJS, RemoteWebDriver, Safari
+			Firefox, Chrome, InternetExplorer, Edge, Opera, 
+            //PhantomJS, deprecated
+            //RemoteWebDriver, used PhantomJS
+            Safari
 		}
 
 		public Selenium(string baseUrl, BrowserTypeEnum browserType, TimeSpan implicitWait) : this(baseUrl, browserType)
@@ -78,13 +81,13 @@ namespace Selenium
 				case BrowserTypeEnum.Opera:
 					Driver = new OperaDriver();
 					break;
-				case BrowserTypeEnum.PhantomJS:
-					Driver = new PhantomJSDriver();
-					break;
-				case BrowserTypeEnum.RemoteWebDriver:
-					ICapabilities capabilities = DesiredCapabilities.PhantomJS();
-					Driver = new RemoteWebDriver(capabilities);
-					break;
+				//case BrowserTypeEnum.PhantomJS:
+				//	Driver = new PhantomJSDriver();
+				//	break;
+				//case BrowserTypeEnum.RemoteWebDriver:
+				//	ICapabilities capabilities = DesiredCapabilities.PhantomJS();
+				//	Driver = new RemoteWebDriver(capabilities);
+				//	break;
 				case BrowserTypeEnum.Safari:
 					Driver = new SafariDriver();
 					break;
@@ -104,7 +107,7 @@ namespace Selenium
 
 		private void SetImplicitWait(TimeSpan implicitWait)
 		{
-			Driver.Manage().Timeouts().ImplicitlyWait(implicitWait);
+			Driver.Manage().Timeouts().ImplicitWait = implicitWait;
 		}
 
 		public virtual void Quit()

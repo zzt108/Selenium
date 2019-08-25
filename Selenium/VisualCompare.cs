@@ -16,7 +16,7 @@ namespace Selenium
 		private readonly Selenium.BrowserTypeEnum _browserType;
 		private readonly string _imagesRoot;
 
-		private readonly ImageFormat _imageFormat;
+		private readonly ScreenshotImageFormat _imageFormat;
 		/// <summary>
 		/// Replace illegal chars and make sure that the whole path is shorter than 248 chars
 		/// </summary>
@@ -67,7 +67,7 @@ namespace Selenium
 		{
 			_browserType = browserType;
 			_imagesRoot = imagesRoot;
-			_imageFormat = ImageFormat.Png;
+			_imageFormat = ScreenshotImageFormat.Png;
 		}
 
 		public void TakeScreenshot(string fileName)
@@ -142,7 +142,7 @@ namespace Selenium
 
 		public void SetPageLoadTimeOut(int timeoutMilliSeconds)
 		{
-			Selenium.Driver.Manage().Timeouts().SetPageLoadTimeout(TimeSpan.FromMilliseconds(timeoutMilliSeconds));
+			Selenium.Driver.Manage().Timeouts().PageLoad = TimeSpan.FromMilliseconds(timeoutMilliSeconds);
 		}
 
 	}
