@@ -160,13 +160,10 @@ namespace NUnit.Tests
 			}
 		}
 
-		[TearDown]
-		public void Cleanup()
-		{
-			_visualCompare?.Selenium?.Quit();
-		}
+        [TearDown]
+        public void Cleanup() => _visualCompare?.Selenium?.Quit();
 
-		[Test]
+        [Test]
 		public void CreateBaselineImages()
 		{
 
@@ -181,19 +178,13 @@ namespace NUnit.Tests
 			Assert.IsTrue(ok, "See console for details");
 		}
 
-		[Test]
-		public void CreateCurrentImages()
-		{
-			Current(true);
-		}
+        [Test]
+        public void CreateCurrentImages() => Current(true);
 
-		[Test]
-		public void CreateCurrentImagesContinue()
-		{
-			Current(false);
-		}
+        [Test]
+        public void CreateCurrentImagesContinue() => Current(false);
 
-		[Test]
+        [Test]
 		public void CompareResults()
 		{
 			var fuzzMax = 0;
